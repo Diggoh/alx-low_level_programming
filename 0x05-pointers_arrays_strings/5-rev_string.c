@@ -2,17 +2,41 @@
 #include <stdio.h>
 
 /**
- * string_toupper - uppers a lower
- * @s: character to make upper
- * Return: return value of upper
+ * _strlen - returns the length of a given string
+ *
+ *
+ * @s: string to check the length of
+ * Return: returns the length of the string
  */
-char *string_toupper(char *s)
+int _strlen(char *s)
 {
-	int i;
+  int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-		if (s[i] >= 'a' && s[i] <= 'z')
-			s[i] = s[i] - 32;
+  i = 0;
+  while (s[i] != '\0')
+    i++;
+  return (i);
+}
 
-	return (s);
+
+/**
+ * rev_string - reverses string in place, without printing it
+ *
+ * @s: string to reverse
+ * Return: void
+ */
+void rev_string(char *s)
+{
+  int i, len;
+  char a, z;
+
+  len = _strlen(s) - 1;
+  i = 0;
+  while (i < len)
+    {
+      a = s[i];
+      z = s[len];
+      s[i++] = z;
+      s[len--] = a;
+    }
 }
